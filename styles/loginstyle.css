@@ -1,0 +1,43 @@
+body {
+    font-size: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-image:url("../images/paw.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+    
+
+}
+
+h2{
+    text-align:center;
+    font-weight: 400;
+    color:brown;
+    margin-top:5px;
+}
+
+form{
+    border:2px solid burlywood;
+    padding: 25px;
+    margin:auto;
+    width:max-content;
+    margin-top:150px;
+    background-color:white;
+    text-align:center;
+}
+
+input{
+    padding:5px;
+    margin:10px;
+    
+
+}
+
+input[type="submit"]{
+    display:block;
+    margin:auto;
+    background-color: burlywood;
+    color:white;
+    width:50%;
+    border-radius:5px;
+    padding:10px 0px;
+    font-size:18px;
