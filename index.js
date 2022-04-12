@@ -1,8 +1,9 @@
 class User {
-    constructor(id, userName, pswd) {
+    constructor(id, userName, pswd, birthday) {
         this.userId = id;
         this.userName = userName;
         this.setUserPassword(pswd);
+        this.userBirthday = birthday
     }
     //get methods
     getUserId() {
@@ -13,6 +14,9 @@ class User {
     }
     getUserPassword(){
         return this.userPassword;
+    }
+    getUserBirthday(){
+        return this.userBirthday;
     }
     //set methods
     setUserId(id){
@@ -29,6 +33,9 @@ class User {
             console.log("Password must have at least 1 uppercase letter, 1 symbol, 2 numbers and be at least 8 characters long.")
         }
 
+    }
+    setUserBirthday(birthday){
+        this.userBirthday = birthday;
     }
     //valid password method
     validPassword(pswd){
@@ -71,3 +78,15 @@ class User {
 let user1 = new User(12345,"coolGuy23","wordD12@");
 console.log(user1);
 console.log(user1.getUserId());
+
+const form1 = document.getElementById("register-form");
+form1.addEventListener('submit',registerUser);
+
+function registerUser(e) {
+    e.preventDefault();
+
+    first = document.getElementById("firstname").value;
+    last = document.getElementById("lastname").value;
+    bday = document.getElementById("birthday").value;
+    pass = document.getElementById("pswd").value;
+}
