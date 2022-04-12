@@ -38,7 +38,7 @@ class User {
             let symbols = 0;
 
             for (let i = 0; i<pswd.length; i++){
-                if this.isDigit(pswd[i])) {
+                if (this.isDigit(pswd[i])) {
                     numbers++;
                 } else if(!this.isLetterOrDigit(pswd[i])) {
                     symbols++;
