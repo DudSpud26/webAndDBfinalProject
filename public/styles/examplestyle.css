@@ -1,0 +1,78 @@
+body {
+    font-size: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-image:url("../images/paw.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+    
+
+}
+
+h1 {
+    color:brown;
+}
+
+nav ul li a{
+    background-color:brown;
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+
+}
+nav ul {
+    text-align: left;
+}
+
+nav ul li{
+    display:inline-block;
+    padding: 5px 10px;
+    font-size: 20px;
+}
+nav ul li a:hover,.active {
+    background-color: white;
+    color: burlywood;
+}
+
+#profile-box {
+    background-color:white;
+    border:2px solid burlywood;
+}
+
+img {
+    padding-top: 40px;
+    display: block;
+    margin: auto;
+    width: 500px;
+}
+
+h2 {
+    text-align: center;
+    color: brown;
+}
+
+h3 {
+    text-align: center;
+    color:brown;
+    margin-bottom:0px;
+}
+
+.trait {
+    max-width: 200px;
+  }
+  
+  .trait p {
+    color:white;
+    background-color: brown;
+    padding: 10px;
+    border-radius:5px;
+  }
+
+  .container {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: center;
+    }
+ 
+  .trait {
+    margin:10px;
+  }

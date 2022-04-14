@@ -1,9 +1,10 @@
 class User {
-    constructor(id, userName, pswd, birthday) {
+    constructor(id, userName, pswd, birthday, email) {
         this.userId = id;
         this.userName = userName;
         this.setUserPassword(pswd);
-        this.userBirthday = birthday
+        this.userBirthday = birthday;
+        this.userEmail = email;
     }
     //get methods
     getUserId() {
@@ -17,6 +18,9 @@ class User {
     }
     getUserBirthday(){
         return this.userBirthday;
+    }
+    getUserEmail(){
+        return this.userEmail;
     }
     //set methods
     setUserId(id){
@@ -36,6 +40,9 @@ class User {
     }
     setUserBirthday(birthday){
         this.userBirthday = birthday;
+    }
+    setUserEmail(email){
+        this.userEmail = email;
     }
     //valid password method
     validPassword(pswd){
@@ -75,7 +82,8 @@ class User {
     }
 }
 
-let user1 = new User(12345,"coolGuy23","wordD12@");
+let usercount = 0;
+let user = new User(12345,`${first} ${last}`,pass,bday,email);
 console.log(user1);
 console.log(user1.getUserId());
 
@@ -89,4 +97,5 @@ function registerUser(e) {
     last = document.getElementById("lastname").value;
     bday = document.getElementById("birthday").value;
     pass = document.getElementById("pswd").value;
+    email = document.getElementById("email").value;
 }
