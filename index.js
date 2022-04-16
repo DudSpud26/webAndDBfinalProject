@@ -87,15 +87,68 @@ let user = new User(12345,`${first} ${last}`,pass,bday,email);
 console.log(user1);
 console.log(user1.getUserId());
 
-const form1 = document.getElementById("register-form");
-form1.addEventListener('submit',registerUser);
+const registerform= document.getElementById("register-form");
+if (registerform) registerform.addEventListener('submit',registerUser);
 
 function registerUser(e) {
     e.preventDefault();
 
-    first = document.getElementById("firstname").value;
-    last = document.getElementById("lastname").value;
-    bday = document.getElementById("birthday").value;
-    pass = document.getElementById("pswd").value;
-    email = document.getElementById("email").value;
+    let first = document.getElementById("firstname").value;
+    let last = document.getElementById("lastname").value;
+    let bday = document.getElementById("birthday").value;
+    let pass = document.getElementById("pswd").value;
+    let email = document.getElementById("email").value;
+}
+
+const loginform = document.getElementById("login-form");
+if(loginform) loginform.addEventListener('submit', loginUser);
+
+function loginUser(e) {
+    e.preventDefault();
+
+    let loginemail = document.getElementById("email").value;
+    let loginpass = document.getElementById("pswd").value;
+}
+
+const picform = document.getElementById("pic-form");
+if(picform) picform.addEventListener('submit', uploadpic);
+
+function uploadpic(e){
+    e.preventDefault();
+
+    let pic = document.getElementById("profile-pic").value;
+
+}
+
+const nameageform = document.getElementById("name-age-form");
+if(nameageform) nameageform.addEventListener('submit',getnameage);
+
+function getnameage(e){
+    e.preventDefault();
+
+    let dogname = document.getElementById("dog-age").value;
+    let dogage = document.getElementById("dog-age").value;
+
+}
+
+const personalityform = document.getElementById("personality-form");
+if(personalityform) personalityform.addEventListener('submit', gettraits);
+
+function gettraits(e){
+    e.preventDefault();
+
+    let trait1 = document.getElementById("trait1").value;
+    let trait2 = document.getElementById("trait2").value;
+    let trait3 = document.getElementById("trait3").value;
+    let trait4 = document.getElementById("trait4").value;
+    let trait5 = document.getElementById("trait5").value;
+    let trait6 = document.getElementById("trait6").value;
+    let trait7 = document.getElementById("trait7").value;
+    let trait8 = document.getElementById("trait8").value;
+    let trait9 = document.getElementById("trait9").value;
+    let trait10 = document.getElementById("trait10").value;
+    let trait11 = document.getElementById("trait11").value;
+    let trait12 = document.getElementById("trait12").value;
+
+
 }

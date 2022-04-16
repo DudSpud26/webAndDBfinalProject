@@ -13,21 +13,25 @@
     </header>
     <p>Click on the "Choose File" button to upload a profile picture</p>
 
-    <form action="#to-some-server">
+    <form id="pic-form" action="#to-some-server">
         <input type="file" id="profile-pic" name="filename"><br>
+        <input type="submit" value="Submit">
         
     </form>
 
-    <p>Enter the age of your dog</p>
+    <p>Enter your dog's name and age</p>
 
-    <form action="#to-some-server">
-        <label for="dog-age">Age: </label>
+    <form id="name-age-form" action="#to-some-server">
+        <label for="dog-name">Name: </label><br>
+        <input type="text" id="dog-name" name="dog-name"><br>
+        <label for="dog-age">Age: </label><br>
         <input type="text" id="dog-age" name="dog-age">
+        <input type="submit" value="Submit">
     </form>
 
     <p> Choose up to 5 personality traits for your dog</p>
 
-    <form action="#to-some-server">
+    <form id="personality-form" action="#to-some-server">
         <input type="checkbox" id="trait1" name="trait1" value="Energetic">
         <label for="trait1">Energetic</label><br>
         <input type="checkbox" id="trait2" name="trait2" value="Lazy">
