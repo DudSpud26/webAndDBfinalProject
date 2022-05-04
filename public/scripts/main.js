@@ -218,6 +218,17 @@ function gettraits(e){
 
 
 }
+
+let checks = document.querySelectorAll(".trait");
+let max = 2;
+for (let i =0; i<checks.length;i++)
+  checks[i].onclick = selectiveCheck;
+function selectiveCheck (event) {
+  let checkedChecks = document.querySelectorAll(".trait:checked");
+  if (checkedChecks.length > max)
+    return false;
+}
+
 let usercount = 0;
 let user = new User(12345,first,last,pass,bday,email);
 console.log(user1);
