@@ -164,6 +164,20 @@ function registerUser(e) {
   let bday = document.getElementById("birthday").value;
   let pass = document.getElementById("pswd").value;
   let email = document.getElementById("email").value;
+
+  fetchData('/users/register', {userFirstName:first,userLastName:last,userBirthday:bday,password:pass,userEmail:email}, "POST")
+  .then((data) => {
+    if(!data.message) {
+      setCurrentUser(data);
+      window.location.href = "profile.html"
+    }
+  })
+  .catch((error) => {
+    const errText = error.message;
+    document.querySelector("#register-form p.error").innerHTML = errText;
+    document.getElementById("pswd").value="";
+    console.log(`Error! ${errText}`)
+  });
 }
 
 const loginform = document.getElementById("login-form");
@@ -174,6 +188,19 @@ function loginUser(e) {
 
   let loginemail = document.getElementById("email").value;
   let loginpass = document.getElementById("pswd").value;
+  fetchData('/users/login'; {userEmail:loginemail,password:loginpass}, "POST")
+  .then((data) => {
+    if(!data.message) {
+      setCurrentUser(data);
+      window.location.href="profile.html";
+    }
+  })
+  .catch((error) => {
+    const errText = error.message;
+    document.querySelector("#login-form p.error").innerHTML = errText;
+    document.getElementById("pswd").value = "";
+    console.log(`Error! ${errText}`)
+  });
 }
 
 const picform = document.getElementById("pic-form");

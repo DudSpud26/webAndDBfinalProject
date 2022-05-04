@@ -9,45 +9,50 @@ if(!user) window.location.href = "login.html";
 
 let profile = document.getElementById("profile");
 profile.innerHTML = `
-  <h2>Welcome back, ${user.username}!</h2>
-  <div>
-    <p class="error"></p>
-    <button class="btn" id="edit">Edit Info</button>
-    <button class="btn" id="delete">Delete Account</button>
-  </div>
+<div id = profile-box>
+        
+<img id="profilepicture" src="${pic}" alt="Picture of a dog">
+<h2>${dogname}</h2>
+<h3>${dogage}</h3>
+
+<section class="container">
+    <!-- trait 1 -->
+    <div class="trait">
+     
+      <p>
+        Lazy
+      </p>
+    </div>
+    <!-- trait 2 -->
+    <div class="trait">
+      
+      <p>
+        Mouthy
+      </p>
+    </div>
+    <!-- trait 3 -->
+    <div class="trait">
+      
+      <p>
+        Stubborn
+      </p>
+    </div>
+    <!-- trait 4 -->
+    <div class="trait">
+      
+      <p>
+        Friendly
+      </p>
+    </div>
+
+
+</div>
 `;
 
 document.getElementById("edit").addEventListener('click', editProfile);
 document.getElementById("delete").addEventListener('click', deleteAccount);
 
-function editProfile() {
-  profile.classList.toggle("hide");
-  let editForm = document.getElementById("editForm");
-  editForm.innerHTML = `
-    <form id="form" class="basic-form">
-      <p class="error"></p>
-      <h2>Edit Profile</h2>
-      <label for="username">Change Username</label>
-      <input type="text" name="username" id="username" placeholder="${user.username}">
-      <br>
-      <input type="submit" value="Submit">
-    </form>
-    <form id="passForm" class="basic-form">
-      <p class="error"></p>
-      <h2>Change Password</h2>
-      <label for="pswd">Change Password</label>
-      <input type="password" name="pswd" id="pswd">
-      <br>
-      <input type="submit" value="Submit">
-    </form>
-    <button class="btn" id="cancel">Cancel</button>
-  `;
 
-  editForm.addEventListener('submit', editAccount)
-  document.getElementById("cancel").addEventListener('click', (e) => {
-    window.location.href = "profile.html";
-  })
-}
 
 function editAccount(e) {
   e.preventDefault();

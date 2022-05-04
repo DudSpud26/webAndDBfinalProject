@@ -33,8 +33,8 @@ let getUsers = async () => {
     const sql = "SELECT * FROM users";
     return await con.query(sql);
 };
-async function login(username,password) {
-    const user = await userExists(username);
+async function login(useremail,password) {
+    const user = await userExists(useremail);
     if(!user[0]) throw Error('User not found')
     if(user[0].userPassword !== password) throw Error("Password is incorrect");
 
