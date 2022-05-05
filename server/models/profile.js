@@ -33,3 +33,18 @@ let getDogs = async () => {
     const sql = "SELECT * FROM profiles";
     return await con.query(sql);
 };
+
+async function editAge(profile) {
+    const sql = `UPDATE profiles SET
+    dogAge = "${profile.dogAge}"
+    WHERE dogId = ${profile.dogId}
+    `;
+}
+
+async function dogExists(dogId) {
+    const sql = `SELECT * FROM profiles 
+    WHERE dogId = ${dogId}
+    `;
+
+    return await con.query(sql);
+}
