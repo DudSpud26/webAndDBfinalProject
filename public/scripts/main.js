@@ -1,19 +1,19 @@
 const nav = document.querySelector('nav');
 if(getCurrentUser()) {
-    nav.innerHTML = 
+    nav.innerHTML = `
     <ul>
         <li><a href="profile.html">Home</a></li>
         <li><a href="messages.html">Messages</a></li>
         <li><a href="edit-profile.html">Edit Profile</a></li>
         <li><a id="logout">Logout</a></li>
-    </ul>
+    </ul>`;
 } else {
-    nav.innerHTML = 
+    nav.innerHTML = `
     <ul>
         <li><a href="login.html">Login</a></li>
         <li><a href="register.html">Sign up</a></li>
         
-    </ul>
+    </ul>`;
 }
 // Fetch method implementation:
 export async function fetchData(url = '', data = {}, methodType) {
@@ -188,7 +188,7 @@ function loginUser(e) {
 
   let loginemail = document.getElementById("email").value;
   let loginpass = document.getElementById("pswd").value;
-  fetchData('/users/login'; {userEmail:loginemail,password:loginpass}, "POST")
+  fetchData('/users/login', {userEmail:loginemail,password:loginpass}, "POST")
   .then((data) => {
     if(!data.message) {
       setCurrentUser(data);

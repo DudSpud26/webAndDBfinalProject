@@ -20,7 +20,27 @@ header{
     
     
 }
+nav ul li a{
+    background-color:brown;
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
 
+}
+nav ul {
+    text-align: center;
+}
+
+nav ul li{
+    display:inline-block;
+    padding:2px 2px;
+    font-size: 20px;
+    margin: 0px 0px;
+}
+nav ul li a:hover,.active {
+    background-color: white;
+    color: burlywood;
+}
 h1 {
     color:white;
     text-align:center;
