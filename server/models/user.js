@@ -60,9 +60,9 @@ async function deleteUser(userId) {
     await con.query(sql);
 }
 
-async function userExists(useremail) {
+async function userExists(userEmail) {
     const sql = `SELECT * FROM users
-    WHERE useremail =${userEmail}
+    WHERE userEmail ="${userEmail}"
     `;
 
     return await con.query(sql);

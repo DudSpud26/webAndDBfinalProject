@@ -3,8 +3,8 @@ if(getCurrentUser()) {
     nav.innerHTML = `
     <ul>
         <li><a href="profile.html">Home</a></li>
-        <li><a href="messages.html">Messages</a></li>
-        <li><a href="edit-profile.html">Edit Profile</a></li>
+        <li><a href="#">Messages</a></li>
+        <li><a href="editprofile.html">Edit Profile</a></li>
         <li><a id="logout">Logout</a></li>
     </ul>`;
 } else {
@@ -65,7 +65,7 @@ class User {
       this.userId = id;
       this.userFirstName = userFirstName;
       this.userLastName = userLastName;
-      this.setUserPassword(pswd);
+      this.userPassword=pswd;
       this.userBirthday = birthday;
       this.userEmail = email;
   }
@@ -98,6 +98,7 @@ class User {
   setUserLastName(userLastName){
       this.userLastName = userLastName;
   }
+  /*
   setUserPassword(pswd){
       if(this.validPassword(pswd)) {
           this.userPassword = pswd;
@@ -107,12 +108,18 @@ class User {
       }
 
   }
-  setUserBirthday(birthday){
+  */
+ setUserPassword(pswd){
+   this.userPassword=pswd;
+ }
+
+ setUserBirthday(birthday){
       this.userBirthday = birthday;
   }
   setUserEmail(email){
       this.userEmail = email;
   }
+  /*
   //valid password method
   validPassword(pswd){
       if (pswd.length >=8) {
@@ -148,9 +155,77 @@ class User {
   //returns if character is a letter or digit
   isLetterOrDigit(char){
       return ((/[a-zA-Z]/).test(char)||(/[0-9]/).test(char))
+  }*/
+}
+class Profile {
+  constructor (id,pic,name,age,trait1,trait2,trait3,trait4,trait5) {
+    this.dogId = id;
+    this.dogPicture = pic;
+    this.dogName = name;
+    this.dogAge = age;
+    this.trait1 = trait1;
+    this.trait2 = trait2;
+    this.trait3 = trait3;
+    this.trait4 = trait4;
+    this.trait5 = trait5;
+  }
+  //get methods
+  getDogId() {
+    return this.dogId;
+  }
+  getDogPicture(){
+    return this.dogPicture;
+  }
+  getDogName() {
+    return this.dogName;
+  }
+  getDogAge() {
+    return this.dogAge;
+  }
+  getTrait1() {
+    return this.trait1;
+  }
+  getTrait2() {
+    return this.trait2;
+  }
+  getTrait3() {
+    return this.trait3;
+  }
+  getTrait4() {
+    return this.trait4;
+  }
+  getTrait5() {
+    return this.trait5;
+  }
+  //set methods
+  setDogId(id) {
+    this.dogId=id;
+  }
+  setDogPicture(pic){
+    this.dogPicture=pic;
+  }
+  setDogName(name) {
+    this.dogName=name;
+  }
+  setDogAge(age) {
+    this.dogAge=age;
+  }
+  setTrait1(trait) {
+    this.trait1=trait;
+  }
+  setTrait2(trait) {
+    this.trait2=trait;
+  }
+  setTrait3(trait) {
+    this.trait3=trait;
+  }
+  setTrait4(trait) {
+    this.trait4=trait;
+  }
+  setTrait5(trait) {
+    this.trait5=trait;
   }
 }
-
 
 
 const registerform = document.getElementById("register-form");
@@ -211,6 +286,13 @@ function uploadpic(e){
 
   let pic = document.getElementById("profile-pic").value;
 
+  fetchData('/profiles/uploadpic', {dogPicture:pic}, "POST" )
+  .then((data => {
+    if(!data.message) {
+      setCurrentPic(data);
+      
+    }
+  }))
 }
 
 const nameageform = document.getElementById("name-age-form");
@@ -219,11 +301,11 @@ if(nameageform) nameageform.addEventListener('submit',getnameage);
 function getnameage(e){
   e.preventDefault();
 
-  let dogname = document.getElementById("dog-age").value;
+  let dogname = document.getElementById("dog-name").value;
   let dogage = document.getElementById("dog-age").value;
 
 }
-
+/*
 const personalityform = document.getElementById("personality-form");
 if(personalityform) personalityform.addEventListener('submit', gettraits);
 
@@ -245,18 +327,24 @@ function gettraits(e){
 
 
 }
-
+*/
 let checks = document.querySelectorAll(".trait");
-let max = 2;
+let max = 5;
 for (let i =0; i<checks.length;i++)
   checks[i].onclick = selectiveCheck;
 function selectiveCheck (event) {
   let checkedChecks = document.querySelectorAll(".trait:checked");
   if (checkedChecks.length > max)
     return false;
-}
+  let trait1=checkedCheck[0]
+  let trait2=checkedCheck[1]
+  let trait3=checkedCheck[2]
+  let trait4=checkedCheck[3]
+  let trait5=checkedCheck[4]
+  
+  }
 
-let usercount = 0;
-let user = new User(12345,first,last,pass,bday,email);
-console.log(user1);
-console.log(user1.getUserId());
+//let usercount = 0;
+//let user = new User(12345,first,last,pass,bday,email);
+//console.log(user1);
+//console.log(user1.getUserId());
