@@ -287,12 +287,16 @@ function uploadpic(e){
   let pic = document.getElementById("profile-pic").value;
 
   fetchData('/profiles/uploadpic', {dogPicture:pic}, "POST" )
-  .then((data => {
+  .then((data) => {
     if(!data.message) {
-      setCurrentPic(data);
+      setDogPicture(data);
       
     }
-  }))
+  })
+  .catch((error) => {
+    const errText = error.message;
+    console.log(`Error!  ${errText}`)
+  });
 }
 
 const nameageform = document.getElementById("name-age-form");
@@ -303,6 +307,19 @@ function getnameage(e){
 
   let dogname = document.getElementById("dog-name").value;
   let dogage = document.getElementById("dog-age").value;
+
+  fetchData('/profiles/nameage',{dogName:dogname, dogAge:dogage}, "POST")
+  .then((data) => {
+    if(!data.message) {
+      setDogAge(data.dogAge);
+      setDogName(data.dogName);
+
+    }
+  })
+  .catch((error) => {
+    const errText = error.message;
+    console.log(`Error! ${errText}`)
+  });
 
 }
 /*
@@ -342,6 +359,22 @@ function selectiveCheck (event) {
   let trait4=checkedCheck[3]
   let trait5=checkedCheck[4]
   
+  fetchData('/profiles/traits', {trait1:trait1, trait2:trait2,trait3:trait3,trait4:trait4,trait5:trait5}, "POST")
+  .then((data) => {
+    if(!data.message) {
+      setTrait1(data.trait1);
+      setTrait2(data.trait2);
+      setTrait3(data.trait3);
+      setTrait4(data.trait4);
+      setTrait5(data.trait5);
+
+
+    }
+  })
+  .catch((error) => {
+    const errText = error.message;
+    console.log(`Error! ${errText}`)
+  });
   }
 
 //let usercount = 0;
