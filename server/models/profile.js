@@ -41,3 +41,5 @@ async function dogExists(dogId) {
 
     return await con.query(sql);
 }
+
+module.exports = {getDogs, editAge, dogExists}

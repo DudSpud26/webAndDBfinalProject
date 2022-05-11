@@ -12,17 +12,17 @@
         <h1>DogMeet.com</h1>
         <nav></nav>
     </header>
-    <p>Click on the "Choose File" button to upload a profile picture</p>
+    <p>Add the image URL to the text box below</p>
 
-    <form id="pic-form" action="#to-some-server">
-        <input type="file" id="profile-pic" name="filename"><br>
+    <form id="pic-form" method="POST">
+        <input type="text" id="profile-pic" name="filename"><br>
         <input type="submit" value="Submit">
         
     </form>
 
     <p>Enter your dog's name and age</p>
 
-    <form id="name-age-form" action="#to-some-server">
+    <form id="name-age-form" method="POST">
         <label for="dog-name">Name: </label><br>
         <input type="text" id="dog-name" name="dog-name"><br>
         <label for="dog-age">Age: </label><br>
@@ -32,7 +32,7 @@
 
     <p> Choose up to 5 personality traits for your dog</p>
 
-    <form id="personality-form">
+    <form id="personality-form" method="POST">
         <input type="checkbox" id="trait1" class="trait" value="Energetic">
         <label for="trait1">Energetic</label><br>
         <input type="checkbox" id="trait2" class="trait" value="Lazy">
